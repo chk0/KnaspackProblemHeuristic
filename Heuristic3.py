@@ -100,8 +100,7 @@ if __name__ == "__main__":
     Xfinal, W4 = t3.get()
     
     elapsed_time = time.time() - start_time
-    print("Heuristic con Hilos time: %0.10f seconds." % elapsed_time)
-
+    print("Heuristic time: %0.10f seconds." % elapsed_time)
     print("f(x) = {}".format(Xfinal))
 
  

@@ -6,7 +6,6 @@ from time import time
 import time
 from multiprocessing.pool import ThreadPool
 from datetime import datetime
-# from threading import Thread
 
 
 # heuristic algorithm 1
@@ -57,11 +56,11 @@ def readData(fname):
             arrW.append(arrVW[j][0])
 
         arrVW = sorted(arrVW, key=lambda x: x[0], reverse=True)
-        recorrer = int(n/4)
+        r = int(n/4)
         split_list.append(0)
         for i in range(3):
-            split_list.append(recorrer)
-            recorrer += int(n/4)
+            split_list.append(r)
+            r += int(n/4)
 
         res = [arrVW[i : j] for i, j in zip([0] + 
           split_list, split_list + [None])] 
@@ -70,7 +69,7 @@ def readData(fname):
         arrVW2 = res[2]
         arrVW3 = res[3]
         arrVW4 = res[4]
-        return recorrer, W, arrVW1, arrVW2 ,arrVW3 ,arrVW4 
+        return r, W, arrVW1, arrVW2 ,arrVW3 ,arrVW4 
         fhandle.close()
     except IOError as ex:
         print('There was an error reading the instance')
@@ -102,8 +101,7 @@ if __name__ == "__main__":
     Xfinal, W4 = t3.get()
     
     elapsed_time = time.time() - start_time
-    print("Heuristic con Hilos time: %0.10f seconds." % elapsed_time)
-
+    print("Heuristic time: %0.10f seconds." % elapsed_time)
     print("f(x) = {}".format(Xfinal))
 
  
